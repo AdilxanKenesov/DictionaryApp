@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- O'zbekiston bayrog'i, doira shaklida -->
+<vector xmlns:android="http://schemas.android.com/apk/res/android"
+    android:width="24dp"
+    android:height="24dp"
+    android:viewportWidth="24"
+    android:viewportHeight="24">
+    <group>
+        <clip-path android:pathData="M12,12m-12,0a12,12 0 1,0 24,0a12,12 0 1,0 -24,0" />
+        <path android:fillColor="#FFFFFF" android:pathData="M0,0h24v24h-24z" />
+        <path android:fillColor="#0099B5" android:pathData="M0,0h24v7.6h-24z" />
+        <path android:fillColor="#CE1126" android:pathData="M0,7.6h24v0.6h-24z" />
+        <path android:fillColor="#CE1126" android:pathData="M0,15.8h24v0.6h-24z" />
+        <path android:fillColor="#1EB53A" android:pathData="M0,16.4h24v7.6h-24z" />
+        <!-- yarim oy -->
+        <path android:fillColor="#FFFFFF" android:pathData="M7,3.8m-2.6,0a2.6,2.6 0 1,0 5.2,0a2.6,2.6 0 1,0 -5.2,0" />
+        <path android:fillColor="#0099B5" android:pathData="M8,3.8m-2.3,0a2.3,2.3 0 1,0 4.6,0a2.3,2.3 0 1,0 -4.6,0" />
+        <!-- yulduzlar -->
+        <path android:fillColor="#FFFFFF" android:pathData="M11.2,2.2m-0.55,0a0.55,0.55 0 1,0 1.1,0a0.55,0.55 0 1,0 -1.1,0" />
+        <path android:fillColor="#FFFFFF" android:pathData="M13.2,2.2m-0.55,0a0.55,0.55 0 1,0 1.1,0a0.55,0.55 0 1,0 -1.1,0" />
+        <path android:fillColor="#FFFFFF" android:pathData="M15.2,2.2m-0.55,0a0.55,0.55 0 1,0 1.1,0a0.55,0.55 0 1,0 -1.1,0" />
+        <path android:fillColor="#FFFFFF" android:pathData="M11.2,4.2m-0.55,0a0.55,0.55 0 1,0 1.1,0a0.55,0.55 0 1,0 -1.1,0" />
+        <path android:fillColor="#FFFFFF" android:pathData="M13.2,4.2m-0.55,0a0.55,0.55 0 1,0 1.1,0a0.55,0.55 0 1,0 -1.1,0" />
+        <path android:fillColor="#FFFFFF" android:pathData="M15.2,4.2m-0.55,0a0.55,0.55 0 1,0 1.1,0a0.55,0.55 0 1,0 -1.1,0" />
+        <path android:fillColor="#FFFFFF" android:pathData="M11.2,6.2m-0.55,0a0.55,0.55 0 1,0 1.1,0a0.55,0.55 0 1,0 -1.1,0" />
+        <path android:fillColor="#FFFFFF" android:pathData="M13.2,6.2m-0.55,0a0.55,0.55 0 1,0 1.1,0a0.55,0.55 0 1,0 -1.1,0" />
+        <path android:fillColor="#FFFFFF" android:pathData="M15.2,6.2m-0.55,0a0.55,0.55 0 1,0 1.1,0a0.55,0.55 0 1,0 -1.1,0" />
+    </group>
+</vector>

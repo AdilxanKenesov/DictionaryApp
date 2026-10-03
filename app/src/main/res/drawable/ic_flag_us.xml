@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- AQSh bayrog'i, doira shaklida -->
+<vector xmlns:android="http://schemas.android.com/apk/res/android"
+    android:width="24dp"
+    android:height="24dp"
+    android:viewportWidth="24"
+    android:viewportHeight="24">
+    <group>
+        <clip-path android:pathData="M12,12m-12,0a12,12 0 1,0 24,0a12,12 0 1,0 -24,0" />
+        <path android:fillColor="#B22234" android:pathData="M0,0h24v24h-24z" />
+        <path android:fillColor="#FFFFFF" android:pathData="M0,1.85h24v1.85h-24zM0,5.54h24v1.85h-24zM0,9.23h24v1.85h-24zM0,12.92h24v1.85h-24zM0,16.62h24v1.85h-24zM0,20.31h24v1.85h-24z" />
+        <path android:fillColor="#3C3B6E" android:pathData="M0,0h11v12.92h-11z" />
+        <path android:fillColor="#FFFFFF" android:pathData="M2.2,2.2m-0.6,0a0.6,0.6 0 1,0 1.2,0a0.6,0.6 0 1,0 -1.2,0M5.2,2.2m-0.6,0a0.6,0.6 0 1,0 1.2,0a0.6,0.6 0 1,0 -1.2,0M8.2,2.2m-0.6,0a0.6,0.6 0 1,0 1.2,0a0.6,0.6 0 1,0 -1.2,0M2.2,5.2m-0.6,0a0.6,0.6 0 1,0 1.2,0a0.6,0.6 0 1,0 -1.2,0M5.2,5.2m-0.6,0a0.6,0.6 0 1,0 1.2,0a0.6,0.6 0 1,0 -1.2,0M8.2,5.2m-0.6,0a0.6,0.6 0 1,0 1.2,0a0.6,0.6 0 1,0 -1.2,0M2.2,8.2m-0.6,0a0.6,0.6 0 1,0 1.2,0a0.6,0.6 0 1,0 -1.2,0M5.2,8.2m-0.6,0a0.6,0.6 0 1,0 1.2,0a0.6,0.6 0 1,0 -1.2,0M8.2,8.2m-0.6,0a0.6,0.6 0 1,0 1.2,0a0.6,0.6 0 1,0 -1.2,0M2.2,11m-0.6,0a0.6,0.6 0 1,0 1.2,0a0.6,0.6 0 1,0 -1.2,0M5.2,11m-0.6,0a0.6,0.6 0 1,0 1.2,0a0.6,0.6 0 1,0 -1.2,0M8.2,11m-0.6,0a0.6,0.6 0 1,0 1.2,0a0.6,0.6 0 1,0 -1.2,0" />
+    </group>
+</vector>

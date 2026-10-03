@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="utf-8"?>
+<vector xmlns:android="http://schemas.android.com/apk/res/android"
+    android:width="108dp"
+    android:height="108dp"
+    android:viewportWidth="108"
+    android:viewportHeight="108">
+    <!-- ochiq kitob: chap va o'ng sahifalar -->
+    <path
+        android:fillColor="#FFFFFF"
+        android:pathData="M54,40.5C49.5,37 43,35.5 36,35.5c-2.6,0 -5.1,0.3 -7.5,0.9v34.2c2.4,-0.6 4.9,-0.9 7.5,-0.9c7,0 13.5,1.5 18,5z" />
+    <path
+        android:fillColor="#DEE1FF"
+        android:pathData="M54,40.5C58.5,37 65,35.5 72,35.5c2.6,0 5.1,0.3 7.5,0.9v34.2c-2.4,-0.6 -4.9,-0.9 -7.5,-0.9c-7,0 -13.5,1.5 -18,5z" />
+    <!-- sahifadagi satrlar -->
+    <path
+        android:fillColor="#3949AB"
+        android:pathData="M34,45h14v2.6h-14zM34,51h14v2.6h-14zM34,57h10v2.6h-10z" />
+    <path
+        android:fillColor="#00897B"
+        android:pathData="M60,45h14v2.6h-14zM60,51h14v2.6h-14zM64,57h10v2.6h-10z" />
+</vector>

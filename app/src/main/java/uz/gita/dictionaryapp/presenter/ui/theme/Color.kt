@@ -1,0 +1,47 @@
+package uz.gita.dictionaryapp.presenter.ui.theme
+
+import androidx.compose.ui.graphics.Color
+
+// Light
+val Indigo = Color(0xFF3949AB)
+val IndigoContainer = Color(0xFFDEE1FF)
+val OnIndigoContainer = Color(0xFF0E1A6B)
+val Teal = Color(0xFF00897B)
+val TealContainer = Color(0xFFC6EFE9)
+val OnTealContainer = Color(0xFF00382F)
+val Amber = Color(0xFFA35F00)
+val AmberContainer = Color(0xFFFFE2B8)
+val OnAmberContainer = Color(0xFF3A2000)
+val BackgroundLight = Color(0xFFF7F7FC)
+val SurfaceLight = Color(0xFFFFFFFF)
+val SurfaceContainerLight = Color(0xFFEEF0FA)
+val SurfaceContainerHighLight = Color(0xFFE4E7F5)
+val OnSurfaceLight = Color(0xFF1A1B23)
+val OnSurfaceVariantLight = Color(0xFF5B5E73)
+val OutlineLight = Color(0xFFD3D5E3)
+val ErrorLight = Color(0xFFBA1A1A)
+val ErrorContainerLight = Color(0xFFFFDAD6)
+val SuccessLight = Color(0xFF2E7D32)
+val SuccessContainerLight = Color(0xFFD6F2D7)
+
+// Dark
+val IndigoDark = Color(0xFFB9C3FF)
+val OnIndigoDark = Color(0xFF0B1E86)
+val IndigoContainerDark = Color(0xFF2C3A92)
+val TealDark = Color(0xFF5ED9C7)
+val TealContainerDark = Color(0xFF00504A)
+val AmberDark = Color(0xFFFFB95C)
+val AmberContainerDark = Color(0xFF5C3A00)
+val BackgroundDark = Color(0xFF111218)
+val SurfaceDark = Color(0xFF1A1B23)
+val SurfaceContainerDark = Color(0xFF22242E)
+val SurfaceContainerHighDark = Color(0xFF2B2E3A)
+val OnSurfaceDark = Color(0xFFE4E4EE)
+val OnSurfaceVariantDark = Color(0xFFA6A9BE)
+val OutlineDark = Color(0xFF3A3D4C)
+val ErrorDark = Color(0xFFFFB4AB)
+val ErrorContainerDark = Color(0xFF690005)
+val SuccessDark = Color(0xFF7BD47F)
+val SuccessContainerDark = Color(0xFF1E4620)
+
+val FavoriteRed = Color(0xFFE53958)

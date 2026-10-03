@@ -1,0 +1,115 @@
+<resources>
+    <string name="app_name">Dictionary</string>
+
+    <!-- Tabs -->
+    <string name="tab_dictionary">Dictionary</string>
+    <string name="tab_favorites">Favorites</string>
+    <string name="tab_practice">Practice</string>
+    <string name="tab_settings">Settings</string>
+
+    <!-- Search -->
+    <string name="search_hint_en">Search a word…</string>
+    <string name="search_hint_uz">Type an Uzbek word…</string>
+    <string name="word_of_day">Word of the day</string>
+    <string name="all_words">All words</string>
+    <string name="recent_searches">Recent searches</string>
+    <string name="clear">Clear</string>
+    <string name="results_count">%d results</string>
+    <string name="not_found_title">\"%s\" not found</string>
+    <string name="not_found_message">Check the spelling or try one of these words</string>
+    <string name="not_found_message_short">Check the spelling or try another word</string>
+
+    <!-- Word detail -->
+    <string name="section_uzbek">Uzbek</string>
+    <string name="section_definitions">English definitions</string>
+    <string name="show_more">%d more definitions</string>
+    <string name="show_less">Show less</string>
+    <string name="copied">Copied</string>
+    <string name="word_not_found">Word not found</string>
+    <string name="accent_us" translatable="false">US</string>
+    <string name="accent_uk" translatable="false">UK</string>
+
+    <!-- Content description -->
+    <string name="cd_back">Back</string>
+    <string name="cd_favorite_add">Add to favorites</string>
+    <string name="cd_favorite_remove">Remove from favorites</string>
+    <string name="cd_copy">Copy</string>
+    <string name="cd_share">Share</string>
+    <string name="cd_speak">Pronounce</string>
+    <string name="cd_clear">Clear</string>
+    <string name="cd_swap_direction">Switch search direction</string>
+    <string name="cd_remove">Remove</string>
+    <string name="cd_close">Close</string>
+
+    <!-- Favorites -->
+    <string name="favorites_search_hint">Search favorites</string>
+    <string name="sort_newest">Newest</string>
+    <string name="sort_alphabet">A–Z</string>
+    <string name="favorite_removed">\"%s\" removed</string>
+    <string name="undo">Undo</string>
+    <string name="favorites_empty_title">No favorites yet</string>
+    <string name="favorites_empty_message">Tap the {icon} icon on a word page. Saved words show up here and in practice.</string>
+    <string name="favorites_search_button">Search words</string>
+    <string name="favorites_no_match">No matching words</string>
+    <string name="remove">Remove</string>
+
+    <!-- Practice -->
+    <string name="practice_source">Word source</string>
+    <string name="source_favorites">Favorites (%d)</string>
+    <string name="source_random">Random</string>
+    <string name="flashcard_title">Flashcards</string>
+    <string name="flashcard_desc">Flip the card to learn the word. Mark it as \"I know\" or \"Repeat\".</string>
+    <string name="quiz_title">Quiz</string>
+    <string name="quiz_desc">10 questions, 4 options each.</string>
+    <string name="statistics">Statistics</string>
+    <string name="stat_tests">Quizzes</string>
+    <string name="stat_best">Best</string>
+    <string name="stat_average">Average</string>
+    <string name="not_enough_words">You need at least %d favorite words</string>
+
+    <!-- Flashcard -->
+    <string name="tap_to_flip">Tap to flip</string>
+    <string name="tap_again">Tap again</string>
+    <string name="know">I know</string>
+    <string name="repeat">Repeat</string>
+    <string name="flashcard_done_title">Well done!</string>
+    <string name="flashcard_done_message">You learned %d words</string>
+    <string name="restart">Start again</string>
+    <string name="progress" translatable="false">%1$d / %2$d</string>
+
+    <!-- Quiz -->
+    <string name="question_number">Question %1$d / %2$d</string>
+    <string name="choose_translation">Choose the translation</string>
+    <string name="choose_word">Choose the English word</string>
+
+    <!-- Result -->
+    <string name="result_great">Great result!</string>
+    <string name="result_good">Good result!</string>
+    <string name="result_try">Keep practicing</string>
+    <string name="result_score" translatable="false">%1$d/%2$d</string>
+    <string name="result_percent" translatable="false">%d%%</string>
+    <string name="correct">Correct</string>
+    <string name="wrong">Wrong</string>
+    <string name="wrong_answers">Wrong answers</string>
+    <string name="wrong_answer_line">You: %1$s · Correct: %2$s</string>
+    <string name="no_mistakes">No mistakes at all. Excellent!</string>
+    <string name="home">Home</string>
+    <string name="retry">Retry</string>
+
+    <!-- Settings -->
+    <string name="language_uz" translatable="false">O\'zbekcha</string>
+    <string name="language_en" translatable="false">English</string>
+    <string name="theme">Theme</string>
+    <string name="language">Language</string>
+    <string name="accent">Accent</string>
+    <string name="speech_rate">Speech rate</string>
+    <string name="accent_us_full">American (US)</string>
+    <string name="accent_uk_full">British (UK)</string>
+    <string name="speech_rate_value" translatable="false">%.1fx</string>
+
+    <!-- Errors -->
+    <string name="error_generic">Something went wrong</string>
+    <string name="tts_unavailable">English voice data is not installed on this phone</string>
+    <string name="install">Install</string>
+    <string name="no_app_found">No app found to open this</string>
+</resources>

@@ -1,0 +1,107 @@
+<resources>
+    <string name="app_name">Lug\'at</string>
+
+    <!-- Tablar -->
+    <string name="tab_dictionary">Lug\'at</string>
+    <string name="tab_favorites">Sevimlilar</string>
+    <string name="tab_practice">Mashq</string>
+    <string name="tab_settings">Sozlamalar</string>
+
+    <!-- Qidiruv -->
+    <string name="search_hint_en">So\'z qidiring…</string>
+    <string name="search_hint_uz">O\'zbekcha so\'z yozing…</string>
+    <string name="word_of_day">Kun so\'zi</string>
+    <string name="all_words">Barcha so\'zlar</string>
+    <string name="recent_searches">So\'nggi qidiruvlar</string>
+    <string name="clear">Tozalash</string>
+    <string name="results_count">%d ta natija</string>
+    <string name="not_found_title">\"%s\" topilmadi</string>
+    <string name="not_found_message">Imloni tekshiring yoki quyidagi so\'zlardan birini sinab ko\'ring</string>
+    <string name="not_found_message_short">Imloni tekshiring yoki boshqa so\'z yozib ko\'ring</string>
+
+    <!-- So'z sahifasi -->
+    <string name="section_uzbek">O\'zbekcha</string>
+    <string name="section_definitions">Inglizcha izohlar</string>
+    <string name="show_more">Yana %d ta izoh</string>
+    <string name="show_less">Yig\'ish</string>
+    <string name="copied">Nusxa olindi</string>
+    <string name="word_not_found">So\'z topilmadi</string>
+
+    <!-- Content description -->
+    <string name="cd_back">Orqaga</string>
+    <string name="cd_favorite_add">Sevimlilarga qo\'shish</string>
+    <string name="cd_favorite_remove">Sevimlilardan olib tashlash</string>
+    <string name="cd_copy">Nusxa olish</string>
+    <string name="cd_share">Ulashish</string>
+    <string name="cd_speak">Talaffuz</string>
+    <string name="cd_clear">Tozalash</string>
+    <string name="cd_swap_direction">Qidiruv yo\'nalishini almashtirish</string>
+    <string name="cd_remove">O\'chirish</string>
+    <string name="cd_close">Yopish</string>
+
+    <!-- Sevimlilar -->
+    <string name="favorites_search_hint">Sevimlilardan qidirish</string>
+    <string name="sort_newest">Yangi</string>
+    <string name="sort_alphabet">A–Z</string>
+    <string name="favorite_removed">\"%s\" o\'chirildi</string>
+    <string name="undo">Qaytarish</string>
+    <string name="favorites_empty_title">Hali sevimli so\'z yo\'q</string>
+    <string name="favorites_empty_message">So\'z sahifasidagi {icon} belgisini bosing. Saqlangan so\'zlar shu yerda va mashqlarda chiqadi.</string>
+    <string name="favorites_search_button">So\'z qidirish</string>
+    <string name="favorites_no_match">Mos so\'z topilmadi</string>
+    <string name="remove">O\'chirish</string>
+
+    <!-- Mashq -->
+    <string name="practice_source">So\'zlar manbasi</string>
+    <string name="source_favorites">Sevimlilar (%d)</string>
+    <string name="source_random">Tasodifiy</string>
+    <string name="flashcard_title">Flashcard</string>
+    <string name="flashcard_desc">Kartani aylantirib so\'zni yodlang. \"Bilaman\" yoki \"Takrorlash\" deb belgilang.</string>
+    <string name="quiz_title">Test</string>
+    <string name="quiz_desc">10 ta savol, har birida 4 variant.</string>
+    <string name="statistics">Statistika</string>
+    <string name="stat_tests">Testlar</string>
+    <string name="stat_best">Eng yaxshi</string>
+    <string name="stat_average">O\'rtacha</string>
+    <string name="not_enough_words">Sevimlilarda kamida %d ta so\'z bo\'lishi kerak</string>
+
+    <!-- Flashcard -->
+    <string name="tap_to_flip">Aylantirish uchun bosing</string>
+    <string name="tap_again">Yana bir bor bosing</string>
+    <string name="know">Bilaman</string>
+    <string name="repeat">Takrorlash</string>
+    <string name="flashcard_done_title">Barakalla!</string>
+    <string name="flashcard_done_message">%d ta so\'zni yodladingiz</string>
+    <string name="restart">Qayta boshlash</string>
+
+    <!-- Test -->
+    <string name="question_number">Savol %1$d / %2$d</string>
+    <string name="choose_translation">Tarjimasini tanlang</string>
+    <string name="choose_word">Inglizchasini tanlang</string>
+
+    <!-- Natija -->
+    <string name="result_great">Ajoyib natija!</string>
+    <string name="result_good">Yaxshi natija!</string>
+    <string name="result_try">Yana mashq qiling</string>
+    <string name="correct">To\'g\'ri</string>
+    <string name="wrong">Xato</string>
+    <string name="wrong_answers">Xato javoblar</string>
+    <string name="wrong_answer_line">Siz: %1$s · To\'g\'ri: %2$s</string>
+    <string name="no_mistakes">Birorta ham xato yo\'q. Zo\'r!</string>
+    <string name="home">Bosh sahifa</string>
+    <string name="retry">Qayta</string>
+
+    <!-- Sozlamalar -->
+    <string name="theme">Mavzu</string>
+    <string name="language">Til</string>
+    <string name="accent">Aksent</string>
+    <string name="speech_rate">Tezlik</string>
+    <string name="accent_us_full">Amerika (US)</string>
+    <string name="accent_uk_full">Britaniya (UK)</string>
+
+    <!-- Xatolar -->
+    <string name="error_generic">Xatolik yuz berdi</string>
+    <string name="tts_unavailable">Talaffuz uchun telefonda ingliz tili ovoz paketi o\'rnatilmagan</string>
+    <string name="install">O\'rnatish</string>
+    <string name="no_app_found">Buni ochadigan ilova topilmadi</string>
+</resources>
