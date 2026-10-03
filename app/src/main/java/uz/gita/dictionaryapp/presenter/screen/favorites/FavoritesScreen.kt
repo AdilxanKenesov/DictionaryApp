@@ -195,7 +195,11 @@ object FavoritesScreen : Tab {
                     selected = sort == item,
                     onClick = { onSortChange(item) },
                     shape = SegmentedButtonDefaults.itemShape(index, FavoriteSort.entries.size),
-                    icon = {}
+                    icon = {},
+                    colors = SegmentedButtonDefaults.colors(
+                        activeContainerColor = MaterialTheme.colorScheme.primaryContainer,
+                        activeContentColor = MaterialTheme.colorScheme.onPrimaryContainer
+                    )
                 ) {
                     Text(
                         stringResource(

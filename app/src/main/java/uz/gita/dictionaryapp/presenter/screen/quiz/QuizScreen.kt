@@ -165,6 +165,7 @@ data class QuizScreen(
                     modifier = Modifier
                         .fillMaxWidth()
                         .height(6.dp),
+                    trackColor = MaterialTheme.colorScheme.surfaceContainerHigh,
                     gapSize = 0.dp,
                     drawStopIndicator = {}
                 )

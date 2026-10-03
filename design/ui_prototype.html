@@ -1,0 +1,618 @@
+<!doctype html>
+<html lang="uz">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Lug'at UI prototipi</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Manrope:wght@500;600;700;800&family=Noto+Sans:wght@400;500;600&display=swap" rel="stylesheet">
+<style>
+:root{
+  --primary:#3949AB; --on-primary:#fff; --primary-c:#DEE1FF; --on-primary-c:#0E1A6B;
+  --secondary:#00897B; --secondary-c:#C6EFE9; --on-secondary-c:#00382F;
+  --tertiary:#A35F00; --tertiary-c:#FFE2B8; --on-tertiary-c:#3A2000;
+  --bg:#F7F7FC; --surface:#FFFFFF; --surface-2:#EEF0FA; --surface-3:#E4E7F5;
+  --on-surface:#1A1B23; --muted:#5B5E73; --outline:#D3D5E3;
+  --success:#2E7D32; --success-c:#D6F2D7; --error:#BA1A1A; --error-c:#FFDAD6;
+  --page:#E9EBF3; --page-text:#1A1B23; --page-muted:#5B5E73; --frame:#14151C;
+}
+@media (prefers-color-scheme: dark){
+  :root:not([data-theme="light"]){
+    --primary:#B9C3FF; --on-primary:#0B1E86; --primary-c:#2C3A92; --on-primary-c:#DEE1FF;
+    --secondary:#5ED9C7; --secondary-c:#00504A; --on-secondary-c:#C6EFE9;
+    --tertiary:#FFB95C; --tertiary-c:#5C3A00; --on-tertiary-c:#FFE2B8;
+    --bg:#111218; --surface:#1A1B23; --surface-2:#22242E; --surface-3:#2B2E3A;
+    --on-surface:#E4E4EE; --muted:#A6A9BE; --outline:#3A3D4C;
+    --success:#7BD47F; --success-c:#1E4620; --error:#FFB4AB; --error-c:#690005;
+    --page:#0A0B10; --page-text:#E4E4EE; --page-muted:#9A9DB2; --frame:#000;
+  }
+}
+:root[data-theme="dark"]{
+    --primary:#B9C3FF; --on-primary:#0B1E86; --primary-c:#2C3A92; --on-primary-c:#DEE1FF;
+    --secondary:#5ED9C7; --secondary-c:#00504A; --on-secondary-c:#C6EFE9;
+    --tertiary:#FFB95C; --tertiary-c:#5C3A00; --on-tertiary-c:#FFE2B8;
+    --bg:#111218; --surface:#1A1B23; --surface-2:#22242E; --surface-3:#2B2E3A;
+    --on-surface:#E4E4EE; --muted:#A6A9BE; --outline:#3A3D4C;
+    --success:#7BD47F; --success-c:#1E4620; --error:#FFB4AB; --error-c:#690005;
+    --page:#0A0B10; --page-text:#E4E4EE; --page-muted:#9A9DB2; --frame:#000;
+}
+*{box-sizing:border-box;margin:0;padding:0}
+body{background:var(--page);color:var(--page-text);font-family:"Noto Sans",system-ui,sans-serif;padding:32px 16px 64px}
+header.top{max-width:1500px;margin:0 auto 28px;display:flex;flex-wrap:wrap;gap:16px;align-items:flex-end;justify-content:space-between}
+header.top h1{font-family:Manrope,sans-serif;font-size:28px;font-weight:800}
+header.top p{color:var(--page-muted);margin-top:6px;max-width:720px;line-height:1.5}
+.theme-btn{font:600 14px Manrope,sans-serif;border:1px solid var(--outline);background:var(--surface);color:var(--on-surface);padding:10px 16px;border-radius:999px;cursor:pointer;display:flex;gap:8px;align-items:center}
+.gallery{max-width:1500px;margin:0 auto;display:grid;grid-template-columns:repeat(auto-fill,minmax(340px,1fr));gap:36px 24px;justify-items:center}
+figure{width:340px;max-width:100%}
+figcaption{margin-bottom:12px}
+figcaption b{font-family:Manrope,sans-serif;font-size:16px;display:block}
+figcaption span{font-size:13px;color:var(--page-muted);line-height:1.45;display:block;margin-top:3px}
+.num{display:inline-grid;place-items:center;width:22px;height:22px;border-radius:50%;background:var(--primary);color:var(--on-primary);font-size:12px;margin-right:6px}
+
+/* phone */
+.phone{width:340px;max-width:100%;height:700px;border-radius:38px;background:var(--frame);padding:9px;box-shadow:0 20px 50px -20px rgba(20,25,60,.45)}
+.screen{position:relative;height:100%;border-radius:30px;overflow:hidden;background:var(--bg);color:var(--on-surface);display:flex;flex-direction:column;font-size:14px}
+.status{height:30px;flex:none;display:flex;justify-content:space-between;align-items:center;padding:0 22px;font-size:12px;font-weight:600}
+.status i{display:inline-block;width:14px;height:8px;border-radius:2px;background:currentColor;opacity:.8;margin-left:4px}
+.body{flex:1;overflow:auto;padding:4px 16px 16px;scrollbar-width:none}
+.body::-webkit-scrollbar{display:none}
+.nav{flex:none;height:72px;background:var(--surface-2);display:grid;grid-template-columns:repeat(4,1fr);padding-bottom:6px}
+.nav div{display:flex;flex-direction:column;align-items:center;justify-content:center;gap:4px;font-size:11px;font-weight:600;color:var(--muted)}
+.nav div .pill{width:56px;height:30px;border-radius:16px;display:grid;place-items:center}
+.nav div.on{color:var(--on-surface)}
+.nav div.on .pill{background:var(--primary-c);color:var(--on-primary-c)}
+svg.ic{width:22px;height:22px;fill:currentColor;flex:none}
+svg.sm{width:18px;height:18px}
+
+h2.title{font-family:Manrope,sans-serif;font-size:24px;font-weight:800;margin:6px 0 14px}
+.appbar{display:flex;align-items:center;gap:8px;height:52px;flex:none;padding:0 8px}
+.appbar .sp{flex:1}
+.icon-btn{width:42px;height:42px;border-radius:50%;display:grid;place-items:center;border:0;background:transparent;color:var(--on-surface);cursor:pointer}
+.icon-btn:hover{background:var(--surface-3)}
+.icon-btn.fav{color:#E53958}
+
+.search{display:flex;gap:8px;align-items:center}
+.field{flex:1;display:flex;align-items:center;gap:10px;height:52px;border-radius:26px;background:var(--surface-2);padding:0 16px;color:var(--muted);border:2px solid transparent}
+.field.focus{border-color:var(--primary);background:var(--surface)}
+.field input{flex:1;min-width:0;border:0;outline:0;background:transparent;font:500 15px "Noto Sans",sans-serif;color:var(--on-surface)}
+.dir{height:52px;min-width:64px;border-radius:18px;border:0;background:var(--primary-c);color:var(--on-primary-c);font:800 12px Manrope,sans-serif;display:flex;flex-direction:column;align-items:center;justify-content:center;cursor:pointer;gap:1px}
+
+.wod{margin-top:16px;border-radius:24px;padding:18px;background:linear-gradient(135deg,var(--primary) 0%,#5C6BD6 60%,var(--secondary) 130%);color:#fff;position:relative;overflow:hidden}
+:root[data-theme="dark"] .wod{background:linear-gradient(135deg,#2C3A92 0%,#3B4BB0 60%,#00504A 130%)}
+.wod .lbl{font-size:11px;letter-spacing:.08em;text-transform:uppercase;opacity:.85;font-weight:600;display:flex;gap:6px;align-items:center}
+.wod .w{font-family:Manrope,sans-serif;font-size:30px;font-weight:800;margin-top:8px}
+.wod .t{opacity:.9;margin-top:2px}
+.wod .m{margin-top:12px;font-size:16px;font-weight:600}
+.wod .spk{position:absolute;right:16px;top:50%;transform:translateY(-50%);width:52px;height:52px;border-radius:50%;background:rgba(255,255,255,.2);display:grid;place-items:center}
+.wod::after{content:"";position:absolute;right:-40px;bottom:-60px;width:160px;height:160px;border-radius:50%;background:rgba(255,255,255,.08)}
+
+.sec{display:flex;justify-content:space-between;align-items:center;margin:20px 2px 6px}
+.sec b{font-family:Manrope,sans-serif;font-size:15px}
+.sec a{color:var(--primary);font-weight:600;font-size:13px;cursor:pointer}
+.row{display:flex;align-items:center;gap:12px;padding:11px 4px;border-bottom:1px solid var(--outline)}
+.row:last-child{border-bottom:0}
+.row .ico{width:36px;height:36px;border-radius:12px;background:var(--surface-2);display:grid;place-items:center;color:var(--muted)}
+.row .tx{flex:1;min-width:0}
+.row .tx b{font-weight:600;font-size:15px}
+.row .tx div{color:var(--muted);font-size:13px;margin-top:1px;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+.row .x{color:var(--muted)}
+
+.card{background:var(--surface);border-radius:20px;border:1px solid var(--outline)}
+.res{padding:12px 14px;display:flex;align-items:center;gap:10px;cursor:pointer}
+.res + .res{border-top:1px solid var(--outline)}
+.res .tx{flex:1;min-width:0}
+.res .w{font-size:16px;font-weight:500}
+.res .w mark{background:none;color:var(--primary);font-weight:800}
+.res .ipa{color:var(--muted);font-size:12px;margin-left:6px}
+.res .tr{color:var(--muted);font-size:13px;margin-top:2px}
+.chip{display:inline-flex;align-items:center;height:22px;padding:0 8px;border-radius:8px;font-size:11px;font-weight:700;background:var(--secondary-c);color:var(--on-secondary-c)}
+.chip.noun{background:var(--primary-c);color:var(--on-primary-c)}
+.chip.verb{background:var(--secondary-c);color:var(--on-secondary-c)}
+.chip.adj{background:var(--tertiary-c);color:var(--on-tertiary-c)}
+.badge{display:inline-flex;align-items:center;height:20px;padding:0 6px;border-radius:6px;font-size:10px;font-weight:700;border:1px solid var(--outline);color:var(--muted)}
+.count{color:var(--muted);font-size:12px;margin:12px 4px 8px}
+
+.empty{display:flex;flex-direction:column;align-items:center;text-align:center;padding:36px 20px 10px}
+.empty .art{width:110px;height:110px;border-radius:50%;background:var(--surface-2);display:grid;place-items:center;color:var(--primary);margin-bottom:18px}
+.empty .art svg{width:52px;height:52px}
+.empty b{font-family:Manrope,sans-serif;font-size:18px}
+.empty p{color:var(--muted);margin-top:6px;line-height:1.5;font-size:13px}
+.btn{height:44px;padding:0 22px;border-radius:22px;border:0;background:var(--primary);color:var(--on-primary);font:700 14px Manrope,sans-serif;cursor:pointer;display:inline-flex;align-items:center;gap:8px;justify-content:center}
+.btn.tonal{background:var(--primary-c);color:var(--on-primary-c)}
+.btn.out{background:transparent;border:1px solid var(--outline);color:var(--on-surface)}
+.sugg{display:flex;flex-wrap:wrap;gap:8px;justify-content:center;margin-top:14px}
+.sugg span{padding:6px 12px;border-radius:10px;border:1px solid var(--outline);font-size:13px}
+
+/* detail */
+.hero{padding:4px 20px 18px}
+.hero .w{font-family:Manrope,sans-serif;font-size:38px;font-weight:800;letter-spacing:-.01em}
+.hero .ipa{color:var(--muted);font-size:16px;margin-top:2px}
+.speak{display:flex;gap:8px;margin-top:14px}
+.speak button{height:40px;padding:0 14px 0 10px;border-radius:20px;border:0;background:var(--primary-c);color:var(--on-primary-c);font:700 13px Manrope,sans-serif;display:flex;align-items:center;gap:6px;cursor:pointer}
+.panel{background:var(--surface);border-radius:24px 24px 0 0;flex:1;padding:18px 18px 24px;border-top:1px solid var(--outline)}
+.ptitle{font:800 12px Manrope,sans-serif;letter-spacing:.08em;text-transform:uppercase;color:var(--muted);margin:4px 0 10px;display:flex;gap:8px;align-items:center}
+.ptitle::after{content:"";flex:1;height:1px;background:var(--outline)}
+.sense{display:flex;gap:10px;align-items:flex-start;padding:8px 0}
+.sense .m{font-size:17px;font-weight:600;flex:1}
+.sense .tags{display:flex;gap:6px;width:92px;flex:none;padding-top:2px}
+.defs .pos{font-weight:700;color:var(--primary);margin:10px 0 6px;font-size:13px}
+.defs ol{padding-left:20px;color:var(--on-surface);line-height:1.55;font-size:13.5px}
+.defs li{margin-bottom:6px}
+.more{color:var(--primary);font-weight:700;font-size:13px;display:flex;align-items:center;gap:2px;margin-top:4px;cursor:pointer}
+
+/* favorites */
+.toolbar{display:flex;gap:8px;margin-bottom:12px}
+.seg{display:flex;border:1px solid var(--outline);border-radius:12px;overflow:hidden}
+.seg span{padding:7px 12px;font-size:12px;font-weight:600;color:var(--muted)}
+.seg span.on{background:var(--primary-c);color:var(--on-primary-c)}
+.swipe{position:relative;border-radius:16px;overflow:hidden;margin-bottom:8px}
+.swipe .bgdel{position:absolute;inset:0;background:var(--error);color:#fff;display:flex;align-items:center;justify-content:flex-end;padding-right:20px;gap:6px;font-weight:700;font-size:13px}
+.swipe .fg{position:relative;background:var(--surface);border:1px solid var(--outline);border-radius:16px;padding:12px 14px;display:flex;align-items:center;gap:10px}
+.swipe.moving .fg{transform:translateX(-96px)}
+.snack{position:absolute;left:12px;right:12px;bottom:84px;background:var(--on-surface);color:var(--bg);border-radius:12px;padding:12px 14px;display:flex;justify-content:space-between;align-items:center;font-size:13px;box-shadow:0 8px 20px rgba(0,0,0,.25)}
+.snack b{color:var(--primary-c);cursor:pointer}
+:root[data-theme="dark"] .snack b{color:var(--primary)}
+
+/* practice */
+.big{border-radius:24px;padding:18px;margin-bottom:14px;position:relative;overflow:hidden;cursor:pointer}
+.big.a{background:var(--primary-c);color:var(--on-primary-c)}
+.big.b{background:var(--secondary-c);color:var(--on-secondary-c)}
+.big .ico2{width:48px;height:48px;border-radius:16px;background:rgba(255,255,255,.55);display:grid;place-items:center}
+:root[data-theme="dark"] .big .ico2{background:rgba(0,0,0,.25)}
+.big h3{font-family:Manrope,sans-serif;font-size:20px;font-weight:800;margin-top:14px}
+.big p{opacity:.8;font-size:13px;margin-top:4px;line-height:1.45}
+.big .go{position:absolute;right:16px;top:18px}
+.src{display:flex;gap:8px;margin:2px 0 16px}
+.src span{flex:1;text-align:center;padding:10px 6px;border-radius:14px;border:1px solid var(--outline);font-weight:600;font-size:13px}
+.src span.on{border-color:var(--primary);background:var(--primary-c);color:var(--on-primary-c)}
+.stats{display:grid;grid-template-columns:1fr 1fr 1fr;gap:8px}
+.stats div{background:var(--surface);border:1px solid var(--outline);border-radius:16px;padding:12px 10px;text-align:center}
+.stats b{font-family:Manrope,sans-serif;font-size:20px;display:block}
+.stats span{font-size:11px;color:var(--muted)}
+
+/* flashcard */
+.prog{height:6px;border-radius:3px;background:var(--surface-3);overflow:hidden}
+.prog i{display:block;height:100%;background:var(--primary);border-radius:3px;transition:width .3s}
+.flip{perspective:1200px;height:360px;margin:22px 4px 0;cursor:pointer}
+.flip .in{position:relative;width:100%;height:100%;transition:transform .6s cubic-bezier(.3,.7,.3,1);transform-style:preserve-3d}
+.flip.on .in{transform:rotateY(180deg)}
+.face{position:absolute;inset:0;backface-visibility:hidden;border-radius:28px;display:flex;flex-direction:column;align-items:center;justify-content:center;text-align:center;padding:24px;box-shadow:0 14px 30px -14px rgba(30,40,110,.35)}
+.face.front{background:var(--surface);border:1px solid var(--outline)}
+.face.back{background:var(--primary);color:var(--on-primary);transform:rotateY(180deg)}
+.face .w{font-family:Manrope,sans-serif;font-size:36px;font-weight:800}
+.face .ipa{color:var(--muted);margin-top:6px}
+.face .hint{position:absolute;bottom:18px;font-size:12px;color:var(--muted)}
+.face.back .hint{color:inherit;opacity:.75}
+.face .m{font-family:Manrope,sans-serif;font-size:30px;font-weight:800}
+.fc-actions{display:flex;gap:12px;margin-top:22px}
+.fc-actions button{flex:1;height:52px;border-radius:18px;border:0;font:700 14px Manrope,sans-serif;cursor:pointer;display:flex;align-items:center;justify-content:center;gap:6px}
+.fc-actions .no{background:var(--error-c);color:var(--error)}
+.fc-actions .yes{background:var(--success-c);color:var(--success)}
+
+/* quiz */
+.qtop{display:flex;justify-content:space-between;align-items:center;font-size:13px;color:var(--muted);font-weight:600;margin:6px 0 10px}
+.qcard{margin-top:22px;border-radius:24px;background:var(--surface);border:1px solid var(--outline);padding:26px 18px;text-align:center}
+.qcard small{color:var(--muted);font-size:12px}
+.qcard .w{font-family:Manrope,sans-serif;font-size:34px;font-weight:800;margin-top:6px;display:flex;align-items:center;justify-content:center;gap:8px}
+.opts{display:flex;flex-direction:column;gap:10px;margin-top:20px}
+.opt{height:54px;border-radius:16px;border:1.5px solid var(--outline);background:var(--surface);display:flex;align-items:center;gap:12px;padding:0 14px;font-size:15px;font-weight:600;cursor:pointer;color:var(--on-surface);transition:.2s}
+.opt .k{width:28px;height:28px;border-radius:9px;background:var(--surface-2);display:grid;place-items:center;font:800 12px Manrope,sans-serif;color:var(--muted)}
+.opt.ok{border-color:var(--success);background:var(--success-c);color:var(--success)}
+.opt.ok .k{background:var(--success);color:#fff}
+.opt.bad{border-color:var(--error);background:var(--error-c);color:var(--error)}
+.opt.bad .k{background:var(--error);color:#fff}
+
+/* result */
+.ring{width:170px;height:170px;margin:18px auto 6px;position:relative}
+.ring svg{width:100%;height:100%;transform:rotate(-90deg)}
+.ring .c{position:absolute;inset:0;display:grid;place-items:center;text-align:center}
+.ring .c b{font-family:Manrope,sans-serif;font-size:40px;font-weight:800;display:block;line-height:1}
+.ring .c span{color:var(--muted);font-size:12px}
+.rhead{text-align:center}
+.rhead h3{font-family:Manrope,sans-serif;font-size:22px;font-weight:800}
+.rhead p{color:var(--muted);font-size:13px;margin-top:4px}
+.mini{display:flex;gap:8px;margin:16px 0}
+.mini div{flex:1;border-radius:14px;padding:10px;text-align:center;font-size:12px;font-weight:600}
+.mini .g{background:var(--success-c);color:var(--success)}
+.mini .r{background:var(--error-c);color:var(--error)}
+.mini b{font-size:18px;font-family:Manrope,sans-serif;display:block}
+.wrong{padding:10px 12px;display:flex;align-items:center;gap:10px}
+.wrong + .wrong{border-top:1px solid var(--outline)}
+.wrong .tx{flex:1}
+.wrong .tx div{font-size:12px;color:var(--muted)}
+.wrong s{color:var(--error)}
+.two{display:flex;gap:10px;margin-top:16px}
+.two .btn{flex:1}
+
+/* settings */
+.group{background:var(--surface);border:1px solid var(--outline);border-radius:20px;margin-bottom:14px;overflow:hidden}
+.glbl{font:800 12px Manrope,sans-serif;letter-spacing:.08em;text-transform:uppercase;color:var(--muted);margin:16px 6px 8px}
+.set{display:flex;align-items:center;gap:12px;padding:13px 14px}
+.set + .set{border-top:1px solid var(--outline)}
+.set .tx{flex:1}
+.set .tx div{font-size:12px;color:var(--muted);margin-top:1px}
+.set .ico{width:34px;height:34px;border-radius:11px;background:var(--surface-2);display:grid;place-items:center;color:var(--primary)}
+.set.danger .ico{color:var(--error)}
+.set.danger b{color:var(--error)}
+.slider{height:4px;background:var(--surface-3);border-radius:2px;position:relative;margin:10px 0 2px}
+.slider i{position:absolute;left:0;top:0;height:100%;width:45%;background:var(--primary);border-radius:2px}
+.slider i::after{content:"";position:absolute;right:-9px;top:-7px;width:18px;height:18px;border-radius:50%;background:var(--primary)}
+
+.legend{max-width:1500px;margin:40px auto 0;color:var(--page-muted);font-size:13px;line-height:1.6}
+</style>
+</head>
+<body>
+
+<header class="top">
+  <div>
+    <h1>Lug'at: EN ⇄ UZ · UI prototipi</h1>
+    <p>Har bir ekran bitta telefon ramkasida. Flashcard kartasini bosib aylantirish, test variantlarini tanlash, 1–2-ekranlardagi qidiruvga yozish va EN⇄UZ tugmasini bosish mumkin. So'zlar <code>dictionary.db</code> dan olingan.</p>
+  </div>
+  <button class="theme-btn" id="themeBtn"><svg class="ic sm" data-i="dark"></svg><span>Mavzu: tizim</span></button>
+</header>
+
+<main class="gallery">
+
+<!-- 1 HOME -->
+<figure>
+  <figcaption><b><span class="num">1</span>Lug'at: bosh holat</b><span>Qidiruv maydoni, EN⇄UZ tugmasi, kun so'zi va so'nggi qidiruvlar.</span></figcaption>
+  <div class="phone"><div class="screen">
+    <div class="status"><span>9:41</span><span><i></i><i></i></span></div>
+    <div class="body">
+      <h2 class="title">Lug'at</h2>
+      <div class="search">
+        <label class="field"><svg class="ic" data-i="search"></svg><input class="live" data-target="r1" placeholder="So'z qidiring..."></label>
+        <button class="dir" data-dir><span>EN</span><svg class="ic sm" data-i="swap"></svg></button>
+      </div>
+      <div class="home-default">
+        <div class="wod">
+          <div class="lbl"><svg class="ic sm" data-i="star"></svg>Kun so'zi · 4-oktabr</div>
+          <div class="w">courage</div>
+          <div class="t">/kʌr.ɪdʒ/ · noun</div>
+          <div class="m">jasorat, jasurlik</div>
+          <div class="spk"><svg class="ic" data-i="vol"></svg></div>
+        </div>
+        <div class="sec"><b>So'nggi qidiruvlar</b><a>Tozalash</a></div>
+        <div>
+          <div class="row"><div class="ico"><svg class="ic sm" data-i="history"></svg></div><div class="tx"><b>light</b><div>yorug'lik; yoritmoq</div></div><svg class="ic sm x" data-i="close"></svg></div>
+          <div class="row"><div class="ico"><svg class="ic sm" data-i="history"></svg></div><div class="tx"><b>book</b><div>kitob</div></div><svg class="ic sm x" data-i="close"></svg></div>
+          <div class="row"><div class="ico"><svg class="ic sm" data-i="history"></svg></div><div class="tx"><b>journey</b><div>sayohat; sayohat qilmoq</div></div><svg class="ic sm x" data-i="close"></svg></div>
+          <div class="row"><div class="ico"><svg class="ic sm" data-i="history"></svg></div><div class="tx"><b>achieve</b><div>erishmoq</div></div><svg class="ic sm x" data-i="close"></svg></div>
+        </div>
+      </div>
+      <div class="live-results" id="r1" hidden></div>
+    </div>
+    <nav class="nav" data-nav="0"></nav>
+  </div></div>
+</figure>
+
+<!-- 2 SEARCH RESULTS -->
+<figure>
+  <figcaption><b><span class="num">2</span>Lug'at: qidiruv natijalari</b><span>Yozish paytida natija chiqadi (250 ms debounce). Topilgan qism ajratib ko'rsatiladi. Tartib: aniq moslik → prefiks → ichida.</span></figcaption>
+  <div class="phone"><div class="screen">
+    <div class="status"><span>9:41</span><span><i></i><i></i></span></div>
+    <div class="body">
+      <h2 class="title">Lug'at</h2>
+      <div class="search">
+        <label class="field focus"><svg class="ic" data-i="search"></svg><input class="live" data-target="r2" value="lig"><svg class="ic sm" data-i="close"></svg></label>
+        <button class="dir" data-dir><span>EN</span><svg class="ic sm" data-i="swap"></svg></button>
+      </div>
+      <div class="live-results" id="r2"></div>
+    </div>
+    <nav class="nav" data-nav="0"></nav>
+  </div></div>
+</figure>
+
+<!-- 3 UZ MODE -->
+<figure>
+  <figcaption><b><span class="num">3</span>Teskari qidiruv: UZ → EN</b><span>UZ rejimida qidiruv <code>uzbek</code> ustuni bo'yicha boradi. Natijada o'zbekcha matn tepada, inglizcha so'z pastda turadi.</span></figcaption>
+  <div class="phone"><div class="screen">
+    <div class="status"><span>9:41</span><span><i></i><i></i></span></div>
+    <div class="body">
+      <h2 class="title">Lug'at</h2>
+      <div class="search">
+        <label class="field focus"><svg class="ic" data-i="search"></svg><input value="kitob" readonly><svg class="ic sm" data-i="close"></svg></label>
+        <button class="dir" style="background:var(--secondary-c);color:var(--on-secondary-c)"><span>UZ</span><svg class="ic sm" data-i="swap"></svg></button>
+      </div>
+      <div class="count">5 ta natija</div>
+      <div class="card">
+        <div class="res"><div class="tx"><div class="w"><mark>kitob</mark></div><div class="tr">book · /bʊk/</div></div><span class="chip noun">noun</span></div>
+        <div class="res"><div class="tx"><div class="w"><mark>kitob</mark> javoni</div><div class="tr">bookcase</div></div><span class="chip noun">noun</span></div>
+        <div class="res"><div class="tx"><div class="w"><mark>kitob</mark> jildi</div><div class="tr">paper-back</div></div><span class="chip noun">noun</span></div>
+        <div class="res"><div class="tx"><div class="w"><mark>kitob</mark>cha</div><div class="tr">pamphlet</div></div><span class="chip noun">noun</span></div>
+        <div class="res"><div class="tx"><div class="w"><mark>kitob</mark>xon</div><div class="tr">reader</div></div><span class="chip noun">noun</span></div>
+      </div>
+    </div>
+    <nav class="nav" data-nav="0"></nav>
+  </div></div>
+</figure>
+
+<!-- 4 NOT FOUND -->
+<figure>
+  <figcaption><b><span class="num">4</span>Topilmadi holati</b><span>Bo'sh natija uchun alohida holat va birinchi 3 harf bo'yicha "shunga o'xshash" takliflar.</span></figcaption>
+  <div class="phone"><div class="screen">
+    <div class="status"><span>9:41</span><span><i></i><i></i></span></div>
+    <div class="body">
+      <h2 class="title">Lug'at</h2>
+      <div class="search">
+        <label class="field focus"><svg class="ic" data-i="search"></svg><input value="beautifull" readonly><svg class="ic sm" data-i="close"></svg></label>
+        <button class="dir"><span>EN</span><svg class="ic sm" data-i="swap"></svg></button>
+      </div>
+      <div class="empty">
+        <div class="art"><svg class="ic" data-i="search"></svg></div>
+        <b>"beautifull" topilmadi</b>
+        <p>Imloni tekshiring yoki quyidagi so'zlardan birini sinab ko'ring</p>
+        <div class="sugg"><span>beautiful</span><span>beauty</span><span>beautify</span><span>beaver</span></div>
+      </div>
+    </div>
+    <nav class="nav" data-nav="0"></nav>
+  </div></div>
+</figure>
+
+<!-- 5 DETAIL -->
+<figure>
+  <figcaption><b><span class="num">5</span>So'z sahifasi</b><span>O'zbekcha ma'nolar turkum bo'yicha guruhlangan, countable belgisi badge ko'rinishida. Pastda Webster'dan inglizcha izohlar, "Ko'proq" bilan ochiladi.</span></figcaption>
+  <div class="phone"><div class="screen">
+    <div class="status"><span>9:41</span><span><i></i><i></i></span></div>
+    <div class="appbar">
+      <button class="icon-btn"><svg class="ic" data-i="back"></svg></button><span class="sp"></span>
+      <button class="icon-btn fav" data-fav><svg class="ic" data-i="fav"></svg></button>
+      <button class="icon-btn"><svg class="ic" data-i="copy"></svg></button>
+      <button class="icon-btn"><svg class="ic" data-i="share"></svg></button>
+    </div>
+    <div class="body" style="padding:0;display:flex;flex-direction:column">
+      <div class="hero">
+        <div class="w">light</div>
+        <div class="ipa">/laɪt/</div>
+        <div class="speak">
+          <button><svg class="ic sm" data-i="vol"></svg>US</button>
+          <button><svg class="ic sm" data-i="vol"></svg>UK</button>
+        </div>
+      </div>
+      <div class="panel">
+        <div class="ptitle">O'zbekcha</div>
+        <div class="sense"><div class="tags"><span class="chip noun">noun</span><span class="badge">C/U</span></div><div class="m">yorug'lik</div></div>
+        <div class="sense"><div class="tags"><span class="chip verb">verb</span></div><div class="m">yoritmoq</div></div>
+        <div class="ptitle" style="margin-top:18px">English definitions</div>
+        <div class="defs">
+          <div class="pos">noun</div>
+          <ol>
+            <li>That agent, force, or action in nature by the operation of which upon the organs of sight, objects are rendered visible.</li>
+            <li>That which furnishes, or is a source of, light, as the sun, a star, a candle, a lighthouse, etc.</li>
+            <li>The time during which the light of the sun is visible; day; especially, the dawn of day.</li>
+          </ol>
+          <div class="more">Yana 24 ta izoh <svg class="ic sm" data-i="more"></svg></div>
+          <div class="pos">verb</div>
+          <ol><li>To set fire to; to cause to burn; to kindle.</li></ol>
+        </div>
+      </div>
+    </div>
+  </div></div>
+</figure>
+
+<!-- 6 FAVORITES -->
+<figure>
+  <figcaption><b><span class="num">6</span>Sevimlilar</b><span>Ro'yxat ichida qidiruv va saralash (yangi / A–Z). Chapga swipe qilinsa o'chadi, Snackbar orqali "Qaytarish" mumkin.</span></figcaption>
+  <div class="phone"><div class="screen">
+    <div class="status"><span>9:41</span><span><i></i><i></i></span></div>
+    <div class="body">
+      <h2 class="title">Sevimlilar <span style="color:var(--muted);font-size:16px;font-weight:600">· 24</span></h2>
+      <div class="toolbar">
+        <label class="field" style="height:42px"><svg class="ic sm" data-i="search"></svg><input placeholder="Sevimlilardan qidirish" readonly></label>
+      </div>
+      <div class="toolbar"><div class="seg"><span class="on">Yangi</span><span>A–Z</span></div></div>
+      <div class="swipe"><div class="fg"><div class="tx" style="flex:1"><b style="font-size:16px">courage</b> <span style="color:var(--muted);font-size:12px">/kʌr.ɪdʒ/</span><div style="color:var(--muted);font-size:13px">jasorat; jasurlik</div></div><span class="chip noun">noun</span></div></div>
+      <div class="swipe moving"><div class="bgdel"><svg class="ic sm" data-i="del"></svg>O'chirish</div><div class="fg"><div class="tx" style="flex:1"><b style="font-size:16px">beautiful</b> <span style="color:var(--muted);font-size:12px">/bju.tɪ.fəl/</span><div style="color:var(--muted);font-size:13px">chiroyli</div></div><span class="chip adj">adj</span></div></div>
+      <div class="swipe"><div class="fg"><div class="tx" style="flex:1"><b style="font-size:16px">discover</b> <span style="color:var(--muted);font-size:12px">/dɪskʌv.ər/</span><div style="color:var(--muted);font-size:13px">kashf etmoq</div></div><span class="chip verb">verb</span></div></div>
+      <div class="swipe"><div class="fg"><div class="tx" style="flex:1"><b style="font-size:16px">honest</b> <span style="color:var(--muted);font-size:12px">/ɒn.ɪst/</span><div style="color:var(--muted);font-size:13px">rostgo'y</div></div><span class="chip adj">adj</span></div></div>
+      <div class="swipe"><div class="fg"><div class="tx" style="flex:1"><b style="font-size:16px">knowledge</b> <span style="color:var(--muted);font-size:12px">/nɒl.ɪdʒ/</span><div style="color:var(--muted);font-size:13px">bilim</div></div><span class="chip noun">noun</span></div></div>
+    </div>
+    <div class="snack"><span>"brave" o'chirildi</span><b>QAYTARISH</b></div>
+    <nav class="nav" data-nav="1"></nav>
+  </div></div>
+</figure>
+
+<!-- 7 FAVORITES EMPTY -->
+<figure>
+  <figcaption><b><span class="num">7</span>Sevimlilar: bo'sh holat</b><span>Hali sevimli so'z yo'q bo'lsa, illustratsiya va qidiruvga o'tish tugmasi chiqadi.</span></figcaption>
+  <div class="phone"><div class="screen">
+    <div class="status"><span>9:41</span><span><i></i><i></i></span></div>
+    <div class="body">
+      <h2 class="title">Sevimlilar</h2>
+      <div class="empty" style="padding-top:90px">
+        <div class="art" style="color:#E53958"><svg class="ic" data-i="favo"></svg></div>
+        <b>Hali sevimli so'z yo'q</b>
+        <p>So'z sahifasidagi ♡ belgisini bosing. Saqlangan so'zlar shu yerda va mashqlarda chiqadi.</p>
+        <div style="margin-top:20px"><button class="btn"><svg class="ic sm" data-i="search"></svg>So'z qidirish</button></div>
+      </div>
+    </div>
+    <nav class="nav" data-nav="1"></nav>
+  </div></div>
+</figure>
+
+<!-- 8 PRACTICE HUB -->
+<figure>
+  <figcaption><b><span class="num">8</span>Mashq</b><span>So'z manbasi tanlanadi, keyin Flashcard yoki Test boshlanadi. Pastda statistika.</span></figcaption>
+  <div class="phone"><div class="screen">
+    <div class="status"><span>9:41</span><span><i></i><i></i></span></div>
+    <div class="body">
+      <h2 class="title">Mashq</h2>
+      <div style="font-size:13px;color:var(--muted);margin:0 2px 8px;font-weight:600">So'zlar manbasi</div>
+      <div class="src"><span class="on">♡ Sevimlilar (24)</span><span>🎲 Tasodifiy</span></div>
+      <div class="big a"><div class="ico2"><svg class="ic" data-i="cards"></svg></div><svg class="ic go" data-i="chev"></svg><h3>Flashcard</h3><p>Kartani aylantirib so'zni yodlang. "Bilaman" yoki "Takrorlash" deb belgilang.</p></div>
+      <div class="big b"><div class="ico2"><svg class="ic" data-i="quiz"></svg></div><svg class="ic go" data-i="chev"></svg><h3>Test</h3><p>10 ta savol, har birida 4 variant. EN→UZ yoki UZ→EN.</p></div>
+      <div class="glbl" style="margin-top:6px">Statistika</div>
+      <div class="stats"><div><b>12</b><span>Testlar</span></div><div><b>9/10</b><span>Eng yaxshi</span></div><div><b>78%</b><span>O'rtacha</span></div></div>
+    </div>
+    <nav class="nav" data-nav="2"></nav>
+  </div></div>
+</figure>
+
+<!-- 9 FLASHCARD -->
+<figure>
+  <figcaption><b><span class="num">9</span>Flashcard (interaktiv)</b><span>Karta bosilsa 3D aylanadi. Swipe: o'ngga "Bilaman", chapga "Takrorlash". Tepada progress.</span></figcaption>
+  <div class="phone"><div class="screen">
+    <div class="status"><span>9:41</span><span><i></i><i></i></span></div>
+    <div class="appbar"><button class="icon-btn"><svg class="ic" data-i="close"></svg></button><b style="font-family:Manrope;font-size:16px">Flashcard</b><span class="sp"></span><span style="color:var(--muted);font-weight:600;font-size:13px;padding-right:12px" id="fcCount">3 / 10</span></div>
+    <div class="body">
+      <div class="prog"><i id="fcProg" style="width:30%"></i></div>
+      <div class="flip" id="flip">
+        <div class="in">
+          <div class="face front"><span class="chip verb" style="margin-bottom:16px">verb</span><div class="w" id="fcW">discover</div><div class="ipa" id="fcI">/dɪskʌv.ər/</div><div style="margin-top:18px;width:48px;height:48px;border-radius:50%;background:var(--primary-c);color:var(--on-primary-c);display:grid;place-items:center"><svg class="ic" data-i="vol"></svg></div><div class="hint">Aylantirish uchun bosing</div></div>
+          <div class="face back"><div class="m" id="fcM">kashf etmoq</div><div class="hint">Yana bir bor bosing</div></div>
+        </div>
+      </div>
+      <div class="fc-actions"><button class="no" data-fc><svg class="ic sm" data-i="refresh"></svg>Takrorlash</button><button class="yes" data-fc><svg class="ic sm" data-i="check"></svg>Bilaman</button></div>
+    </div>
+  </div></div>
+</figure>
+
+<!-- 10 QUIZ -->
+<figure>
+  <figcaption><b><span class="num">10</span>Test (interaktiv)</b><span>Variant tanlanganda yashil yoki qizil bo'ladi, 1 soniyadan keyin keyingi savol chiqadi.</span></figcaption>
+  <div class="phone"><div class="screen">
+    <div class="status"><span>9:41</span><span><i></i><i></i></span></div>
+    <div class="appbar"><button class="icon-btn"><svg class="ic" data-i="close"></svg></button><b style="font-family:Manrope;font-size:16px">Test · EN → UZ</b></div>
+    <div class="body">
+      <div class="qtop"><span id="qNum">Savol 4 / 10</span><span style="color:var(--success)" id="qScore">✓ 3</span></div>
+      <div class="prog"><i id="qProg" style="width:40%"></i></div>
+      <div class="qcard"><small>Tarjimasini tanlang</small><div class="w"><span id="qW">brave</span><span style="color:var(--primary)"><svg class="ic" data-i="vol"></svg></span></div><span class="chip adj" id="qPos">adj</span></div>
+      <div class="opts" id="opts"></div>
+    </div>
+  </div></div>
+</figure>
+
+<!-- 11 RESULT -->
+<figure>
+  <figcaption><b><span class="num">11</span>Test natijasi</b><span>Ball doirasi, to'g'ri/xato hisobi va xato javoblar ro'yxati (har biri so'z sahifasiga olib boradi).</span></figcaption>
+  <div class="phone"><div class="screen">
+    <div class="status"><span>9:41</span><span><i></i><i></i></span></div>
+    <div class="body">
+      <div class="ring">
+        <svg viewBox="0 0 100 100"><circle cx="50" cy="50" r="42" fill="none" stroke="var(--surface-3)" stroke-width="9"/><circle cx="50" cy="50" r="42" fill="none" stroke="var(--success)" stroke-width="9" stroke-linecap="round" stroke-dasharray="263.9" stroke-dashoffset="52.8"/></svg>
+        <div class="c"><div><b>8/10</b><span>80%</span></div></div>
+      </div>
+      <div class="rhead"><h3>Ajoyib natija! 🎉</h3><p>Eng yaxshi natijangizdan 1 ball kam</p></div>
+      <div class="mini"><div class="g"><b>8</b>To'g'ri</div><div class="r"><b>2</b>Xato</div></div>
+      <div class="glbl" style="margin-top:0">Xato javoblar</div>
+      <div class="card">
+        <div class="wrong"><div class="tx"><b>abandon</b><div>Siz: <s>erishmoq</s> · To'g'ri: tark qilmoq</div></div><svg class="ic sm" data-i="chev" style="color:var(--muted)"></svg></div>
+        <div class="wrong"><div class="tx"><b>honest</b><div>Siz: <s>mard</s> · To'g'ri: rostgo'y</div></div><svg class="ic sm" data-i="chev" style="color:var(--muted)"></svg></div>
+      </div>
+      <div class="two"><button class="btn out">Bosh sahifa</button><button class="btn"><svg class="ic sm" data-i="refresh"></svg>Qayta</button></div>
+    </div>
+  </div></div>
+</figure>
+
+<!-- 12 SETTINGS -->
+<figure>
+  <figcaption><b><span class="num">12</span>Sozlamalar</b><span>Mavzu, talaffuz (aksent va tezlik), ma'lumotlarni tozalash va ilova haqida bo'limi.</span></figcaption>
+  <div class="phone"><div class="screen">
+    <div class="status"><span>9:41</span><span><i></i><i></i></span></div>
+    <div class="body">
+      <h2 class="title">Sozlamalar</h2>
+      <div class="glbl">Ko'rinish</div>
+      <div class="group"><div class="set"><div class="ico"><svg class="ic sm" data-i="dark"></svg></div><div class="tx"><b>Mavzu</b><div style="margin-top:8px"><div class="seg"><span>Tizim</span><span class="on">Yorug'</span><span>Qorong'i</span></div></div></div></div></div>
+      <div class="glbl">Talaffuz</div>
+      <div class="group">
+        <div class="set"><div class="ico"><svg class="ic sm" data-i="vol"></svg></div><div class="tx"><b>Aksent</b><div>Amerika (US)</div></div><svg class="ic sm" data-i="chev" style="color:var(--muted)"></svg></div>
+        <div class="set"><div class="ico"><svg class="ic sm" data-i="tune"></svg></div><div class="tx"><b>Nutq tezligi</b><div>Sekinroq · 0.9x</div><div class="slider"><i></i></div></div></div>
+      </div>
+      <div class="glbl">Ma'lumotlar</div>
+      <div class="group">
+        <div class="set danger"><div class="ico"><svg class="ic sm" data-i="history"></svg></div><div class="tx"><b>Tarixni tozalash</b></div></div>
+        <div class="set danger"><div class="ico"><svg class="ic sm" data-i="del"></svg></div><div class="tx"><b>Sevimlilarni tozalash</b></div></div>
+      </div>
+      <div class="glbl">Ilova haqida</div>
+      <div class="group">
+        <div class="set"><div class="ico"><svg class="ic sm" data-i="star"></svg></div><div class="tx"><b>Ilovani baholash</b></div><svg class="ic sm" data-i="chev" style="color:var(--muted)"></svg></div>
+        <div class="set"><div class="ico"><svg class="ic sm" data-i="share"></svg></div><div class="tx"><b>Do'stlarga ulashish</b></div><svg class="ic sm" data-i="chev" style="color:var(--muted)"></svg></div>
+        <div class="set"><div class="ico"><svg class="ic sm" data-i="info"></svg></div><div class="tx"><b>Maxfiylik siyosati</b><div>Versiya 1.0.0</div></div><svg class="ic sm" data-i="chev" style="color:var(--muted)"></svg></div>
+      </div>
+    </div>
+    <nav class="nav" data-nav="3"></nav>
+  </div></div>
+</figure>
+
+</main>
+
+<p class="legend">Ranglar: primary indigo <code>#3949AB</code>, secondary teal <code>#00897B</code>, tertiary amber. Shriftlar: sarlavhalar uchun Manrope, matn va IPA uchun Noto Sans. Turkum chiplari: noun ko'k, verb teal, adj amber. Ilovada ranglar Material 3 <code>ColorScheme</code> sifatida, light va dark sxemada qo'lda yoziladi.</p>
+
+<script>
+const P={
+ search:"M15.5 14h-.79l-.28-.27A6.47 6.47 0 0 0 16 9.5 6.5 6.5 0 1 0 9.5 16c1.61 0 3.09-.59 4.23-1.57l.27.28v.79l5 4.99L20.49 19l-4.99-5zm-6 0C7.01 14 5 11.99 5 9.5S7.01 5 9.5 5 14 7.01 14 9.5 11.99 14 9.5 14z",
+ book:"M21 5c-1.11-.35-2.33-.5-3.5-.5-1.95 0-4.05.4-5.5 1.5-1.45-1.1-3.55-1.5-5.5-1.5S2.45 4.9 1 6v14.65c0 .25.25.5.5.5.1 0 .15-.05.25-.05C3.1 20.45 5.05 20 6.5 20c1.95 0 4.05.4 5.5 1.5 1.35-.85 3.8-1.5 5.5-1.5 1.65 0 3.35.3 4.75 1.05.1.05.15.05.25.05.25 0 .5-.25.5-.5V6c-.6-.45-1.25-.75-2-1zm0 13.5c-1.1-.35-2.3-.5-3.5-.5-1.7 0-4.15.65-5.5 1.5V8c1.35-.85 3.8-1.5 5.5-1.5 1.2 0 2.4.15 3.5.5v11.5z",
+ fav:"M12 21.35l-1.45-1.32C5.4 15.36 2 12.28 2 8.5 2 5.42 4.42 3 7.5 3c1.74 0 3.41.81 4.5 2.09C13.09 3.81 14.76 3 16.5 3 19.58 3 22 5.42 22 8.5c0 3.78-3.4 6.86-8.55 11.54L12 21.35z",
+ favo:"M16.5 3c-1.74 0-3.41.81-4.5 2.09C10.91 3.81 9.24 3 7.5 3 4.42 3 2 5.42 2 8.5c0 3.78 3.4 6.86 8.55 11.54L12 21.35l1.45-1.32C18.6 15.36 22 12.28 22 8.5 22 5.42 19.58 3 16.5 3zm-4.4 15.55l-.1.1-.1-.1C7.14 14.24 4 11.39 4 8.5 4 6.5 5.5 5 7.5 5c1.54 0 3.04.99 3.57 2.36h1.87C13.46 5.99 14.96 5 16.5 5c2 0 3.5 1.5 3.5 3.5 0 2.89-3.14 5.74-7.9 10.05z",
+ school:"M5 13.18v4L12 21l7-3.82v-4L12 17l-7-3.82zM12 3L1 9l11 6 9-4.91V17h2V9L12 3z",
+ tune:"M3 17v2h6v-2H3zM3 5v2h10V5H3zm10 16v-2h8v-2h-8v-2h-2v6h2zM7 9v2H3v2h4v2h2V9H7zm14 4v-2H11v2h10zm-6-4h2V7h4V5h-4V3h-2v6z",
+ vol:"M3 9v6h4l5 5V4L7 9H3zm13.5 3c0-1.77-1.02-3.29-2.5-4.03v8.05c1.48-.73 2.5-2.25 2.5-4.02zM14 3.23v2.06c2.89.86 5 3.54 5 6.71s-2.11 5.85-5 6.71v2.06c4.01-.91 7-4.49 7-8.77s-2.99-7.86-7-8.77z",
+ history:"M13 3a9 9 0 0 0-9 9H1l3.89 3.89.07.14L9 12H6c0-3.87 3.13-7 7-7s7 3.13 7 7-3.13 7-7 7c-1.93 0-3.68-.79-4.94-2.06l-1.42 1.42A8.95 8.95 0 0 0 13 21a9 9 0 0 0 0-18zm-1 5v5l4.28 2.54.72-1.21-3.5-2.08V8H12z",
+ close:"M19 6.41L17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12z",
+ back:"M20 11H7.83l5.59-5.59L12 4l-8 8 8 8 1.41-1.41L7.83 13H20v-2z",
+ copy:"M16 1H4c-1.1 0-2 .9-2 2v14h2V3h12V1zm3 4H8c-1.1 0-2 .9-2 2v14c0 1.1.9 2 2 2h11c1.1 0 2-.9 2-2V7c0-1.1-.9-2-2-2zm0 16H8V7h11v14z",
+ share:"M18 16.08c-.76 0-1.44.3-1.96.77L8.91 12.7c.05-.23.09-.46.09-.7s-.04-.47-.09-.7l7.05-4.11c.54.5 1.25.81 2.04.81 1.66 0 3-1.34 3-3s-1.34-3-3-3-3 1.34-3 3c0 .24.04.47.09.7L8.04 9.81C7.5 9.31 6.79 9 6 9c-1.66 0-3 1.34-3 3s1.34 3 3 3c.79 0 1.5-.31 2.04-.81l7.12 4.16c-.05.21-.08.43-.08.65 0 1.61 1.31 2.92 2.92 2.92s2.92-1.31 2.92-2.92-1.31-2.92-2.92-2.92z",
+ swap:"M6.99 11L3 15l3.99 4v-3H14v-2H6.99v-3zM21 9l-3.99-4v3H10v2h7.01v3L21 9z",
+ cards:"M4 6H2v14c0 1.1.9 2 2 2h14v-2H4V6zm16-4H8c-1.1 0-2 .9-2 2v12c0 1.1.9 2 2 2h12c1.1 0 2-.9 2-2V4c0-1.1-.9-2-2-2zm0 14H8V4h12v12z",
+ quiz:"M11 18h2v-2h-2v2zm1-16C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm0 18c-4.41 0-8-3.59-8-8s3.59-8 8-8 8 3.59 8 8-3.59 8-8 8zm0-14c-2.21 0-4 1.79-4 4h2c0-1.1.9-2 2-2s2 .9 2 2c0 2-3 1.75-3 5h2c0-2.25 3-2.5 3-5 0-2.21-1.79-4-4-4z",
+ check:"M9 16.17L4.83 12l-1.42 1.41L9 19 21 7l-1.41-1.41z",
+ dark:"M12 3a9 9 0 1 0 9 9c0-.46-.04-.92-.1-1.36a5.39 5.39 0 0 1-4.4 2.26 5.4 5.4 0 0 1-3.14-9.8c-.44-.06-.9-.1-1.36-.1z",
+ del:"M6 19c0 1.1.9 2 2 2h8c1.1 0 2-.9 2-2V7H6v12zM19 4h-3.5l-1-1h-5l-1 1H5v2h14V4z",
+ star:"M12 17.27L18.18 21l-1.64-7.19L22 9.24l-7.19-.61L12 2 9.19 8.63 2 9.24l5.46 4.55L5.82 21z",
+ info:"M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm1 15h-2v-6h2v6zm0-8h-2V7h2v2z",
+ chev:"M10 6L8.59 7.41 13.17 12l-4.58 4.59L10 18l6-6z",
+ refresh:"M17.65 6.35A7.96 7.96 0 0 0 12 4c-4.42 0-7.99 3.58-7.99 8s3.57 8 7.99 8c3.73 0 6.84-2.55 7.73-6h-2.08A5.99 5.99 0 0 1 12 18c-3.31 0-6-2.69-6-6s2.69-6 6-6c1.66 0 3.14.69 4.22 1.78L13 11h7V4l-2.35 2.35z",
+ more:"M16.59 8.59L12 13.17 7.41 8.59 6 10l6 6 6-6z"
+};
+function paint(root){root.querySelectorAll("svg[data-i]").forEach(s=>{s.setAttribute("viewBox","0 0 24 24");s.innerHTML=`<path d="${P[s.dataset.i]}"/>`})}
+
+// bottom nav
+const tabs=[["book","Lug'at"],["favo","Sevimlilar"],["school","Mashq"],["tune","Sozlamalar"]];
+document.querySelectorAll("nav[data-nav]").forEach(n=>{
+  const on=+n.dataset.nav;
+  n.innerHTML=tabs.map((t,i)=>`<div class="${i===on?"on":""}"><span class="pill"><svg class="ic" data-i="${i===on&&i===1?"fav":t[0]}"></svg></span>${t[1]}</div>`).join("");
+});
+
+// live search with real rows from dictionary.db
+const W=[["light","noun","/laɪt/","yorug'lik; yoritmoq"],["lighten","verb","/laɪ.tən/","yoritmoq"],["lighter","noun","/laɪ.tər/","chaqmoq tosh"],["lighthouse","noun","/laɪt.haʊs/","mayoq"],["lightning","noun","/laɪt.nɪŋ/","chaqmoq"],["ligament","noun","/lɪɡ.ə.mənt/","pay"],["delight","noun","/dɪlaɪt/","zavq"],["flight","noun","/flaɪt/","parvoz"],["book","noun","/bʊk/","kitob"],["bookcase","noun","/bʊk.keɪs/","kitob javoni"],["beautiful","adj","/bju.tɪ.fəl/","chiroyli"],["brave","adj","/breɪv/","mard"],["courage","noun","/kʌr.ɪdʒ/","jasorat; jasurlik"],["journey","noun","/dʒɜ:.ni/","sayohat; sayohat qilmoq"],["achieve","verb","/ətʃiv/","erishmoq"],["abandon","verb","/əbæn.dən/","tark qilmoq"],["discover","verb","/dɪskʌv.ər/","kashf etmoq"],["honest","adj","/ɒn.ɪst/","rostgo'y"],["knowledge","noun","/nɒl.ɪdʒ/","bilim"]];
+function hl(s,q){const i=s.toLowerCase().indexOf(q);return i<0?s:s.slice(0,i)+"<mark>"+s.slice(i,i+q.length)+"</mark>"+s.slice(i+q.length)}
+function render(input){
+  const q=input.value.trim().toLowerCase(),box=document.getElementById(input.dataset.target);
+  const def=input.closest(".body").querySelector(".home-default");
+  if(!q){box.hidden=true;if(def)def.hidden=false;return}
+  if(def)def.hidden=true;box.hidden=false;
+  const rank=w=>w===q?0:w.startsWith(q)?1:2;
+  const r=W.filter(w=>w[0].includes(q)).sort((a,b)=>rank(a[0])-rank(b[0])||a[0].localeCompare(b[0]));
+  box.innerHTML=r.length?`<div class="count">${r.length} ta natija</div><div class="card">`+r.map(w=>`<div class="res"><div class="tx"><div class="w">${hl(w[0],q)}<span class="ipa">${w[2]}</span></div><div class="tr">${w[3]}</div></div><span class="chip ${w[1]}">${w[1]}</span></div>`).join("")+"</div>"
+   :`<div class="empty"><div class="art"><svg class="ic" data-i="search"></svg></div><b>"${input.value}" topilmadi</b><p>Imloni tekshiring</p></div>`;
+  paint(box);
+}
+document.querySelectorAll("input.live").forEach(i=>{let t;i.addEventListener("input",()=>{clearTimeout(t);t=setTimeout(()=>render(i),250)});i.addEventListener("focus",()=>i.closest(".field").classList.add("focus"));render(i)});
+document.querySelectorAll("[data-dir]").forEach(b=>b.addEventListener("click",()=>{const s=b.querySelector("span");const uz=s.textContent==="EN";s.textContent=uz?"UZ":"EN";b.style.background=uz?"var(--secondary-c)":"";b.style.color=uz?"var(--on-secondary-c)":""}));
+document.querySelectorAll("[data-fav]").forEach(b=>b.addEventListener("click",()=>{const s=b.querySelector("svg");s.dataset.i=s.dataset.i==="fav"?"favo":"fav";paint(b);b.animate([{transform:"scale(1)"},{transform:"scale(1.3)"},{transform:"scale(1)"}],{duration:300})}));
+
+// flashcard
+const FC=[["discover","verb","/dɪskʌv.ər/","kashf etmoq"],["brave","adj","/breɪv/","mard"],["journey","noun","/dʒɜ:.ni/","sayohat"],["honest","adj","/ɒn.ɪst/","rostgo'y"],["knowledge","noun","/nɒl.ɪdʒ/","bilim"]];
+let fi=0,fn=3;const flip=document.getElementById("flip");
+flip.addEventListener("click",()=>flip.classList.toggle("on"));
+document.querySelectorAll("[data-fc]").forEach(b=>b.addEventListener("click",()=>{
+  flip.classList.remove("on");fi=(fi+1)%FC.length;fn=fn%10+1;
+  setTimeout(()=>{const w=FC[fi];fcW.textContent=w[0];fcI.textContent=w[2];fcM.textContent=w[3];const c=flip.querySelector(".chip");c.className="chip "+w[1];c.textContent=w[1];fcCount.textContent=fn+" / 10";fcProg.style.width=fn*10+"%"},250);
+}));
+
+// quiz
+const Q=[["brave","adj","mard",["chiroyli","mard","rostgo'y","aqlli"]],["courage","noun","jasorat",["bilim","sayohat","jasorat","yorug'lik"]],["achieve","verb","erishmoq",["tark qilmoq","erishmoq","kashf etmoq","yoritmoq"]]];
+let qi=0,qn=4,score=3,lock=false;
+function drawQ(){const q=Q[qi];qW.textContent=q[0];qPos.className="chip "+q[1];qPos.textContent=q[1];qNum.textContent=`Savol ${qn} / 10`;qScore.textContent="✓ "+score;qProg.style.width=qn*10+"%";
+  opts.innerHTML=q[3].map((o,i)=>`<button class="opt" data-o="${o}"><span class="k">${"ABCD"[i]}</span>${o}</button>`).join("");
+  opts.querySelectorAll(".opt").forEach(b=>b.addEventListener("click",()=>{if(lock)return;lock=true;const ok=b.dataset.o===q[2];b.classList.add(ok?"ok":"bad");if(!ok)opts.querySelector(`[data-o="${q[2]}"]`).classList.add("ok");else score++;
+    setTimeout(()=>{qi=(qi+1)%Q.length;qn=qn%10+1;lock=false;drawQ()},1000)}));}
+drawQ();
+
+// theme toggle
+const modes=["system","light","dark"],names={system:"tizim",light:"yorug'",dark:"qorong'i"};let m=0;
+themeBtn.addEventListener("click",()=>{m=(m+1)%3;const v=modes[m];if(v==="system")document.documentElement.removeAttribute("data-theme");else document.documentElement.dataset.theme=v;themeBtn.querySelector("span").textContent="Mavzu: "+names[v]});
+paint(document);
+</script>
+</body>
+</html>

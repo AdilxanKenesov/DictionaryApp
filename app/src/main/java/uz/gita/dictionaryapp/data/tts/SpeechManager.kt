@@ -9,6 +9,7 @@ import uz.gita.dictionaryapp.domain.model.SpeechUnavailableException
 import java.util.Locale
 import javax.inject.Inject
 import javax.inject.Singleton
+import kotlin.time.Duration.Companion.milliseconds
 
 @Singleton
 class SpeechManager @Inject constructor(
@@ -23,7 +24,7 @@ class SpeechManager @Inject constructor(
     }
 
     suspend fun speak(text: String, locale: Locale, rate: Float) {
-        val isReady = withTimeoutOrNull(INIT_TIMEOUT) { ready.await() } ?: false
+        val isReady = withTimeoutOrNull(INIT_TIMEOUT.milliseconds) { ready.await() } ?: false
         if (!isReady) throw SpeechUnavailableException()
 
         val result = tts.setLanguage(locale)

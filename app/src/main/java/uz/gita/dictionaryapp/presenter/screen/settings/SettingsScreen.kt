@@ -37,6 +37,7 @@ import androidx.compose.material3.Icon
 import androidx.compose.material3.MaterialTheme
 import androidx.compose.material3.Scaffold
 import androidx.compose.material3.Slider
+import androidx.compose.material3.SliderDefaults
 import androidx.compose.material3.Surface
 import androidx.compose.material3.Switch
 import androidx.compose.material3.SwitchDefaults
@@ -178,6 +179,11 @@ object SettingsScreen : Tab {
                         onValueChange = { onEventDispatcher(SettingsContract.Intent.SetSpeechRate(it)) },
                         valueRange = 0.5f..1.5f,
                         steps = 9,
+                        colors = SliderDefaults.colors(
+                            inactiveTrackColor = MaterialTheme.colorScheme.surfaceContainerHigh,
+                            activeTickColor = MaterialTheme.colorScheme.onPrimary,
+                            inactiveTickColor = MaterialTheme.colorScheme.onSurfaceVariant
+                        ),
                         modifier = Modifier.padding(start = 64.dp, end = 16.dp, bottom = 6.dp)
                     )
                 }

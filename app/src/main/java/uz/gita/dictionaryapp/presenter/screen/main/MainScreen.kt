@@ -77,7 +77,8 @@ class MainScreen : Screen {
             label = { Text(options.title, maxLines = 1, overflow = TextOverflow.Ellipsis) },
             colors = NavigationBarItemDefaults.colors(
                 indicatorColor = MaterialTheme.colorScheme.primaryContainer,
-                selectedIconColor = MaterialTheme.colorScheme.onPrimaryContainer
+                selectedIconColor = MaterialTheme.colorScheme.onPrimaryContainer,
+                selectedTextColor = MaterialTheme.colorScheme.onSurface
             )
         )
     }

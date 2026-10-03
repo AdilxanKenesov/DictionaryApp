@@ -13,6 +13,8 @@ composeBom = "2026.09.00"
 materialIcons = "1.7.5"
 orbit = "12.0.1"
 paging = "3.4.0"
+robolectric = "4.17"
+roborazzi = "1.76.0"
 room = "2.8.5"
 voyager = "2.2.21-1.10.3"
 
@@ -38,6 +40,9 @@ androidx-room-ktx = { module = "androidx.room:room-ktx", version.ref = "room" }
 androidx-room-paging = { module = "androidx.room:room-paging", version.ref = "room" }
 androidx-paging-compose = { module = "androidx.paging:paging-compose", version.ref = "paging" }
 androidx-room-compiler = { module = "androidx.room:room-compiler", version.ref = "room" }
+robolectric = { module = "org.robolectric:robolectric", version.ref = "robolectric" }
+roborazzi = { module = "io.github.takahirom.roborazzi:roborazzi", version.ref = "roborazzi" }
+roborazzi-compose = { module = "io.github.takahirom.roborazzi:roborazzi-compose", version.ref = "roborazzi" }
 hilt-android = { module = "com.google.dagger:hilt-android", version.ref = "hiltAndroid" }
 hilt-android-compiler = { module = "com.google.dagger:hilt-android-compiler", version.ref = "hiltAndroid" }
 orbit-core = { module = "org.orbit-mvi:orbit-core", version.ref = "orbit" }
@@ -50,3 +55,4 @@ voyager-hilt = { module = "cafe.adriel.voyager:voyager-hilt", version.ref = "voy
 [plugins]
 android-application = { id = "com.android.application", version.ref = "agp" }
 kotlin-compose = { id = "org.jetbrains.kotlin.plugin.compose", version.ref = "kotlin" }
+roborazzi = { id = "io.github.takahirom.roborazzi", version.ref = "roborazzi" }

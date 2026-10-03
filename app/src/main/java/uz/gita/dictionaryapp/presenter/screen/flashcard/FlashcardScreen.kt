@@ -132,6 +132,7 @@ data class FlashcardScreen(val source: PracticeSource) : Screen {
                     modifier = Modifier
                         .fillMaxWidth()
                         .height(6.dp),
+                    trackColor = MaterialTheme.colorScheme.surfaceContainerHigh,
                     gapSize = 0.dp,
                     drawStopIndicator = {}
                 )
